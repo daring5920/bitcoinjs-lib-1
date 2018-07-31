@@ -8,6 +8,10 @@ var typeforce = require('typeforce')
 var types = require('./types')
 
 function fromBase58Check (address) {
+   if(address.startsWith('SL')){
+    address=address.substring(2);
+  }
+
   var payload = bs58check.decode(address)
 
   // TODO: 4.0.0, move to "toOutputScript"
